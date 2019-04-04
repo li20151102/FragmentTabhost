@@ -29,7 +29,7 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
     //ImageView动态数组
     private List<ImageView> mImageList = new ArrayList<ImageView>();
     //图片数组
-    private int[] mPics = new int[]{R.mipmap.tu1, R.mipmap.tu2, R.mipmap.tu3,R.mipmap.tu1, R.mipmap.tu2, R.mipmap.tu3};
+    private int[] mPics = new int[]{R.mipmap.tu1, R.mipmap.tu2, R.mipmap.tu3};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
