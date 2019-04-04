@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/textSize_10"
+        android:background="#fff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:layout_marginRight="@dimen/textSize_10"
+            android:textSize="20dp"
+            android:text="用户名:" />
+        <TextView
+            android:id="@+id/tv_input_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#3c3c3c"
+            android:hint="请输入内容"
+            android:gravity="right"
+            android:textSize="@dimen/textSize_18"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/textSize_10"
+            android:src="@mipmap/arrow_right"/>
+    </LinearLayout>
+    <View style="@style/viewLines" />
+    <LinearLayout
+        android:id="@+id/ll_input_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/textSize_10"
+        android:background="#fff"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:layout_marginRight="@dimen/textSize_10"
+            android:textSize="20dp"
+            android:text="年   龄:" />
+        <TextView
+            android:id="@+id/tv_input_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#3c3c3c"
+            android:hint="请输入内容"
+            android:gravity="right"
+            android:textSize="@dimen/textSize_18"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/textSize_10"
+            android:src="@mipmap/arrow_right"/>
+    </LinearLayout>
+    <View style="@style/viewLines" />
+</LinearLayout>

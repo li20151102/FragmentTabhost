@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00cccc"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_actionBar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/textSize_10"
+            android:padding="@dimen/textSize_20"
+            android:src="@mipmap/back_arrow" />
+
+        <TextView
+            android:id="@+id/tv_actionBar_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="标题"
+            android:textColor="#333333"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_actionBar_rightMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/textSize_20"
+            android:gravity="right"
+            android:text="保存"
+            android:textColor="#fcfcfc"
+            android:textSize="@dimen/textSize_18" />
+
+    </LinearLayout>
+
+    <View style="@style/viewLines" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/textSize_10">
+
+        <EditText
+            android:id="@+id/et_input_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入内容"
+            android:textColor="#3c3c3c"
+            android:textSize="@dimen/textSize_18" />
+    </LinearLayout>
+
+    <View style="@style/viewLines" />
+</LinearLayout>

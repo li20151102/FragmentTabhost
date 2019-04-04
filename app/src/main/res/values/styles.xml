@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:listDivider">@drawable/divider_bg</item> <!-- recyclerview的分割背景线设置. -->
+    </style>
+
+    <!--弹出框-->
+    <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <!--<item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>-->
+    </style>
+
+    <style name="TabStyle" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--布局横线-->
+    <style name="viewLines">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.67dp</item>
+        <item name="android:background">#cbcbcb</item>
+    </style>
+    <!--默认布局样式-->
+    <style name="TestViewDft">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--继承默认布局样式-->
+    <style name="TestViewDft.Color">
+        <item name="android:textColor">#f00</item>
+    </style>
+    <!--继承默认布局样式-->
+    <style name="TestViewDft.Size">
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>
