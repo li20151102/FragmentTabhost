@@ -56,10 +56,12 @@ public class FragmentTestB extends Fragment {
     }
 
     private void initValue() {
+        tabTitle.clear();
         tabTitle.add("测试1");
         tabTitle.add("测试2");
 //        tabTitle.add("测试3");
 //        tabTitle.add("测试4");
+        tabFragments.clear();
         tabFragments.add(fragmentTest21);
         tabFragments.add(fragmentTest22);
 //        tabFragments.add(fragmentTest23);

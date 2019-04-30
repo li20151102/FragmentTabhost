@@ -37,17 +37,10 @@ public class FragmentTestBA extends Fragment {
     RecyViewAdapter adapter = new RecyViewAdapter();
     List<String> data1;
 
-    LocalBroadcastManager lbrod;
-    IntentFilter intentFilter = new IntentFilter("ss");
-    FragmentTestBB.MyBoradCast boradCast = new FragmentTestBB.MyBoradCast();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_ba, container, false);
         ButterKnife.inject(this, root);
-        //注册广播接收器
-        lbrod = LocalBroadcastManager.getInstance(getActivity());
-        lbrod.registerReceiver(boradCast,intentFilter);
-
         data1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             data1.add(i + "ddd");
@@ -70,16 +63,6 @@ public class FragmentTestBA extends Fragment {
         @Override
         public void onBindViewHolder(final MyViewHodle myViewHodle, int i) {
             myViewHodle.textView.setText(data1.get(i));
-            myViewHodle.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //发送广播
-                    Intent intent = new Intent("ss");
-                    intent.putExtra("kk","呵呵呵");
-                    lbrod.sendBroadcast(intent);
-                    Log.e("TAG","发送");
-                }
-            });
         }
 
         @Override
@@ -101,6 +84,5 @@ public class FragmentTestBA extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        lbrod.unregisterReceiver(boradCast);
     }
 }

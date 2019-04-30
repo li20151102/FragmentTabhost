@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:listDivider">@drawable/divider_bg</item> <!-- recyclerview的分割背景线设置. -->
+        <!--<item name="android:listDivider">@color/colorGray</item> &lt;!&ndash; recyclerview的分割背景线设置. &ndash;&gt;-->
     </style>
 
     <!--弹出框-->

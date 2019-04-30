@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="15dp"
+    android:background="#0ff"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_f4_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="标题1"/>
+    <ImageView
+        android:id="@+id/iv_f4_icon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/tv_f4_content2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:textSize="25sp"
+        android:text="内容。。。。。。1"/>
+</LinearLayout>
