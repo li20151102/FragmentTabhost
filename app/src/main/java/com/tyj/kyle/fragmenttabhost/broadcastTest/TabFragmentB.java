@@ -36,8 +36,7 @@ import static android.app.Activity.RESULT_OK;
  * @package com.tyj.kyle.fragmenttabhost
  * @fileName TabFragmentA
  */
-@SuppressLint("ValidFragment")
-class TabFragmentB extends Fragment implements EasyPermissions.PermissionCallbacks{
+public class TabFragmentB extends Fragment implements EasyPermissions.PermissionCallbacks{
     LinearLayout mChoosePhoto;
     private static TextView mTvChoosePhoto;
     ImageView mIvChoosePhoto;

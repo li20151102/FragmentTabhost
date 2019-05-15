@@ -20,8 +20,7 @@ import com.tyj.kyle.fragmenttabhost.R;
  * @package com.tyj.kyle.fragmenttabhost
  * @fileName TabFragmentA
  */
-@SuppressLint("ValidFragment")
-class TabFragmentA extends Fragment {
+public class TabFragmentA extends Fragment {
 
 //    public static Fragment newInstance() {
 //        TabFragmentA fragment = new TabFragmentA();
