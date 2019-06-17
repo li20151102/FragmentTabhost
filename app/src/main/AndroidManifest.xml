@@ -44,12 +44,12 @@
         <activity android:name=".BaiDuGpsAcitivity" />
         <activity android:name=".broadcastTest.QRCodeScanActivity" />
         <activity android:name=".broadcastTest.BroadCastActivity" />
-        <activity android:name=".serviceTest.MyServiceActivity" />
+        <!--<activity android:name=".serviceTest.MyServiceActivity" />-->
         <!--<activity android:name=".fragment.FragmentActivity" />-->
         <!--<activity android:name=".viewPager.ViewPagerActivity" />-->
-        <activity android:name=".inputItem.InputActivity" />
+        <!--<activity android:name=".inputItem.InputActivity" />-->
         <activity android:name=".inputItem.InputContentActivity" />
-        <!-- <activity android:name=".fragmentTest.MyActivity" /> -->
+         <!--<activity android:name=".fragmentTest.MyActivity" />-->
         <!-- <activity android:name=".broadcastTest.TabLayoutAcitivity" /> -->
         <service android:name=".serviceTest.MyServiceTest" /> <!-- 百度定位key -->
         <meta-data

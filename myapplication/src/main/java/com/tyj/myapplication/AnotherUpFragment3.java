@@ -2,12 +2,17 @@ package com.tyj.myapplication;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +23,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.FormatException;
@@ -27,13 +35,24 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * 识别图中二维码操作
  */
 
-public class AnotherUpFragment3 extends Fragment  {
+public class AnotherUpFragment3 extends Fragment {
     String mess = null;
     ImageView ivErwm;
+    private File currentFile;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,8 +105,8 @@ public class AnotherUpFragment3 extends Fragment  {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterfacem, int i) {
-//                        saveImageToGallery(bitmap);
-                        Log.e("保存",bitmap.toString());
+                        saveImageToGallery(getActivity(), bitmap);
+                        Log.e("保存", bitmap.toString());
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -100,20 +119,20 @@ public class AnotherUpFragment3 extends Fragment  {
 
     private void showSelectAlert(final Bitmap bitmap, final String url) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("请选择");
+        builder.setTitle("              请选择");
         String str[] = {"保存图片", "识别图中二维码"};
         builder.setItems(str, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterfacem, int i) {
                 switch (i) {
                     case 0: {
-//                        saveImageToGallery(bitmap);
-                        Log.e("保存",bitmap.toString());
+                        saveImageToGallery(getActivity(), bitmap);
+                        Log.e("保存", bitmap.toString());
                     }
                     break;
                     case 1: {
-                        Toast.makeText(getActivity(),"识别二维码结果："+url,Toast.LENGTH_LONG).show();
-                        Log.e("BURL",url);
+                        Toast.makeText(getActivity(), "识别二维码结果：" + url, Toast.LENGTH_LONG).show();
+                        Log.e("BURL", url);
 
 //                        Intent n = new Intent(getActivity(), DetailActivity.class);
 //                        n.putExtra(DetailActivity.BUNDLE_KEY_DISPLAY_TYPE, DetailActivity.WEBVIEW_DETAIL);
@@ -131,6 +150,38 @@ public class AnotherUpFragment3 extends Fragment  {
             }
         });
         builder.show();
+    }
+
+    public static void saveImageToGallery(Context context, Bitmap bmp) {     // 首先保存图片
+        File appDir = new File(context.getFilesDir().getAbsolutePath(), "MyImg");
+        String fileName = System.currentTimeMillis() + ".jpg";
+        if (!appDir.exists()) {
+            appDir.mkdir();
+        }
+        File file = new File(appDir, fileName);
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+            Log.i("picc", "" + file);
+            Toast.makeText(context, "图片已保存", Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 其次把文件插入到系统图库
+        try {
+            MediaStore.Images.Media.insertImage(context.getContentResolver(),
+                    file.getPath(), fileName, null);
+            Log.i("系统库", "" + file.getPath());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        // 最后通知图库更新
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + file.getPath())));
+        Log.i("图库", "" + file.getPath());
     }
 
 }

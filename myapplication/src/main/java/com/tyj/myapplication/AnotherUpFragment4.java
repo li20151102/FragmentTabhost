@@ -28,24 +28,14 @@ public class AnotherUpFragment4 extends Fragment {
         rcviews = view.findViewById(R.id.rcviews);
         for(int i=0;i<10;i++){
             fdb= new F4ItemDataBean();
-            if(i==0){
-                fdb.setTitle("F4标题1");
-                fdb.setContent("F4内容1。。。。");
-            }else if(i==1){
-                fdb.setTitle("F4标题2");
-                fdb.setContent("F4内容2。。。。");
-            }else if(i==2){
-                fdb.setTitle("F4标题3");
-                fdb.setContent("F4内容3。。。。");
-            }else {
-                fdb.setTitle("F4标题");
-                fdb.setContent("F4内容。。。。");
-            }
+            fdb.setTitle("F4标题1");
+            fdb.setContent("F4内容1。。。。");
             listData.add(fdb);
 
         }
-        rcviews.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rcviews.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
         rcviews.setAdapter(adapter);
+
         rcviews.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         return view;
     }
@@ -66,10 +56,10 @@ public class AnotherUpFragment4 extends Fragment {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             RecyclerView.ViewHolder viewHolder = null;
-            if(i%2==0){
-                View mvh1 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frg_f4_layout_item,viewGroup,false);
-                viewHolder = new mViewHolder(mvh1);
-            }else if(i%2==1){
+            if(i==0){
+                View mvh2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frg_f4_layout_item2,viewGroup,false);
+                viewHolder = new mViewHolder2(mvh2);
+            }else if(i==1){
                 View mvh2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frg_f4_layout_item2,viewGroup,false);
                 viewHolder = new mViewHolder2(mvh2);
             }else {
@@ -81,13 +71,13 @@ public class AnotherUpFragment4 extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-            if(i%2==0){
-                mViewHolder viewHolder1 = (mViewHolder) viewHolder;
-                viewHolder1.title.setText(listData.get(i).getTitle());
-                viewHolder1.content.setText(listData.get(i).getContent());
-                viewHolder1.itemView.setTag(i);
+            if(i==0){
+                mViewHolder2 viewHolder2 = (mViewHolder2) viewHolder;
+                viewHolder2.title2.setText(listData.get(i).getTitle());
+                viewHolder2.content2.setText(listData.get(i).getContent());
+                viewHolder2.itemView.setTag(i);
             }
-            else if(i%2==1){
+            else if(i==1){
                 mViewHolder2 viewHolder2 = (mViewHolder2) viewHolder;
                 viewHolder2.title2.setText(listData.get(i).getTitle());
                 viewHolder2.content2.setText(listData.get(i).getContent());

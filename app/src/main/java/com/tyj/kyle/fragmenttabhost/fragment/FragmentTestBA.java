@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tyj.kyle.fragmenttabhost.R;
+import com.tyj.kyle.fragmenttabhost.inputItem.InputActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,13 @@ public class FragmentTestBA extends Fragment {
         @Override
         public void onBindViewHolder(final MyViewHodle myViewHodle, int i) {
             myViewHodle.textView.setText(data1.get(i));
+            myViewHodle.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getActivity(), InputActivity.class));
+                    getActivity().overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
+                }
+            });
         }
 
         @Override
