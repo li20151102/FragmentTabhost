@@ -1,17 +1,16 @@
 package com.tyj.kyle.fragmenttabhost.fragment;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 import com.tyj.kyle.fragmenttabhost.R;
 
@@ -21,14 +20,14 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-/**
- * @author create by kyle_2019 on 2019/3/12 9:17
- * @package com.example.testapplication
- * @fileName FragmentTest
- * 继承在Fragment的fragment
- */
-public class FragmentTestB extends Fragment {
 
+/**
+ * @author create by kyle_2019 on 2019/9/27 13:58
+ * @package com.tyj.kyle.fragmenttabhost.fragment
+ * @fileName Fragment001
+ * 继承在activity的fragment
+ */
+public class Fragment001 extends FragmentActivity {
     @InjectView(R.id.news_tab)
     TabLayout newTab;
     @InjectView(R.id.news_vp)
@@ -40,20 +39,12 @@ public class FragmentTestB extends Fragment {
 
     private FragmentTestBA fragmentTest21 = new FragmentTestBA();
     private FragmentTestBB fragmentTest22 = new FragmentTestBB();
-//    private FragmentTestBB fragmentTest23 = new FragmentTestBB();
-//    private FragmentTestBB fragmentTest24 = new FragmentTestBB();
-
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_b, container, false);
-        ButterKnife.inject(this, root);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment001);
+        ButterKnife.inject(this);
         initValue();
-        return root;
     }
 
     private void initValue() {
@@ -67,7 +58,7 @@ public class FragmentTestB extends Fragment {
         tabFragments.add(fragmentTest22);
 //        tabFragments.add(fragmentTest23);
 //        tabFragments.add(fragmentTest24);
-        adapter = new FindTabAdapter(getChildFragmentManager(), tabFragments, tabTitle);
+        adapter = new FindTabAdapter(getSupportFragmentManager(), tabFragments, tabTitle);
         newVp.setAdapter(adapter);
         newTab.setupWithViewPager(newVp);
         newTab.getTabAt(0).setCustomView(getTabView(0));
@@ -77,7 +68,7 @@ public class FragmentTestB extends Fragment {
     }
 
     public View getTabView(int position) {
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.tab_view, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.tab_view, null);
         TextView txt_title = (TextView) view.findViewById(R.id.tab_view_tv);
         txt_title.setText(tabTitle.get(position));
 //        ImageView img_title = (ImageView) view.findViewById(R.id.tab_view_img);

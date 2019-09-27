@@ -43,7 +43,7 @@ public class FragmentTestBA extends Fragment {
         View root = inflater.inflate(R.layout.fragment_ba, container, false);
         ButterKnife.inject(this, root);
         data1 = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             data1.add(i + "ddd");
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

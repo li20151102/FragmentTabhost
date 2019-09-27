@@ -93,7 +93,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
 
 //    private void showDeleteDialog() {
 //        final Dialog dialog = new Dialog(getActivity(), R.style.Theme_AppCompat_Dialog);
-//        View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.deletebatch_dialog_layout, null);
+//        View inflate = LayoutInflater.from(getActivity()).inflate(R.item_mytest_layout.deletebatch_dialog_layout, null);
 //        final TextView contents = inflate.findViewById(R.id.contents);
 //        long differTime = 8 * 60 * 60 * 1000;
 //        Date curDate = new Date(System.currentTimeMillis()+differTime);//获取当前时间
