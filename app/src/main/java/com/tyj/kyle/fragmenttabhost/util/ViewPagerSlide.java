@@ -9,7 +9,7 @@ import android.view.MotionEvent;
  * @author create by kyle_2019 on 2019/9/29 15:16
  * @package com.tyj.kyle.fragmenttabhost.uitl
  * @fileName ViewPagerSlide
- * 阻止ViewPager 左右滑动
+ * 阻止ViewPager 左右滑动  vp.setSlide(false)
  */
 public class ViewPagerSlide extends ViewPager {
     //是否可以进行滑动
